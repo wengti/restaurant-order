@@ -9,7 +9,7 @@
          <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
-        
+
     </head>
 
     <body>
@@ -29,6 +29,28 @@
                 <!-- Your Order here -->
             </section>
 
+            <section class="modal" id="modal">
+                <form class="payment-form">
+                    <p>Enter card details</p>
+                    <input type="text" 
+                        name = "name"
+                        id = "name"
+                        placeholder="Enter your name" 
+                        required/>
+                    <input type="text"
+                        name = "card-number",
+                        id = "card-number",
+                        pattern= "\d{4}-\d{4}-\d{4}-\d{4}"
+                        placeholder = "Enter card number (xxxx-xxxx-xxxx-xxxx)"
+                        />
+                    <input type="text"
+                        name="card-cvv",
+                        id="card-cvv",
+                        pattern="\d{3}",
+                        placeholder = "Enter CVV (xxx)"/>
+                    <button type="submit" class="payment-btn">Pay</button>
+                </form>
+            </section>
         </main>
 
         <script src="./index.js" type="module"></script>

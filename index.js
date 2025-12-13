@@ -3,6 +3,7 @@ import menuArray from "./data.js";
 // Getting control of elements
 const itemOuter = document.getElementById("item-outer")
 const orderOuter = document.getElementById("order-outer")
+const modal = document.getElementById("modal")
 
 
 // Functions to run upon loading of the page
@@ -15,6 +16,9 @@ document.addEventListener("click", function(event) {
     }
     else if (event.target.dataset.removeOrderId) {
         removeOrder(event.target.dataset.removeOrderId)
+    }
+    else if (event.target.id === "complete-order-btn") {
+        modal.style.display = "block";
     }
 })
 
@@ -118,7 +122,8 @@ function getOrderHtml(){
                     </div>
                 </div>
 
-                <button class="complete-order-btn">Complete order</button>
+                <button class="complete-order-btn"
+                    id="complete-order-btn">Complete order</button>
         `
     }
 
