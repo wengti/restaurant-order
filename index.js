@@ -1,5 +1,6 @@
 import menuArray from "./data.js";
 
+
 // Getting control of elements
 const itemOuter = document.getElementById("item-outer")
 const orderOuter = document.getElementById("order-outer")

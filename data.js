@@ -26,7 +26,8 @@ const menuArray = [
     {
         name: "Set A",
         ingredients: ["2x Hamburgers", "2x Beers"],
-        price: 0,
+        originalPrice: 48,
+        price: 43.20,
         image: "./images/SetA.png",
         id: "3",
         orderCount: 0
@@ -34,7 +35,8 @@ const menuArray = [
     {
         name: "Set B",
         ingredients: ["1x Pizza", "4x Beers"],
-        price: 0,
+        originalPrice: 62,
+        price: 55.80,
         image: "./images/SetB.png",
         id: "4",
         orderCount: 0
