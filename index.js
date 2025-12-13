@@ -116,7 +116,9 @@ function getOrderHtml(){
                         <div class="order-detail">Total Price:</div>
                         <div class="order-price">$${totalPrice}</div>
                     </div>
-                </div>            
+                </div>
+
+                <button class="complete-order-btn">Complete order</button>
         `
     }
 
