@@ -4,6 +4,7 @@ import menuArray from "./data.js";
 const itemOuter = document.getElementById("item-outer")
 const orderOuter = document.getElementById("order-outer")
 const modal = document.getElementById("modal")
+const overlay = document.getElementById("overlay")
 
 
 // Functions to run upon loading of the page
@@ -18,7 +19,12 @@ document.addEventListener("click", function(event) {
         removeOrder(event.target.dataset.removeOrderId)
     }
     else if (event.target.id === "complete-order-btn") {
+        overlay.style.display = "block";
         modal.style.display = "block";
+    }
+    else if (event.target.id === "overlay"){
+        overlay.style.display = "none";
+        modal.style.display = "none";
     }
 })
 
