@@ -99,7 +99,6 @@ function handleRating(ratingId) {
     if (! (Number(ratingId) === highestSolidIndex) ){
         for (let i=0; i<Number(ratingId); i++){
             ratingArr[i].classList.add("fa-solid")
-            console.log("why")
         }
     }    
 }
@@ -121,7 +120,10 @@ function getMenuHtml(){
 
     // Render out the menu
     menuHtml = menuArray.map( (menuItem) => {
-        const {name, ingredients, id, price, image, orderCount} = menuItem
+        const {name, ingredients, id, price, image, orderCount, originalPrice} = menuItem
+
+        const originalPriceHtml = originalPrice ? `$${originalPrice}` : ``
+
 
         return `
             <div class="item-inner">
@@ -129,7 +131,7 @@ function getMenuHtml(){
                 <div class="food-detail">
                     <p class="food-name">${name}</p>
                     <p class="food-ingredient">${ingredients.join(", ")}</p>
-                    <p class="food-price">$${price}</p>
+                    <div class="food-price"><del>${originalPriceHtml}</del><p>$${price}</p></div>
                 </div>
                 <button data-add-order-id=${id} id="add-order-btn">+</button>
             </div>
