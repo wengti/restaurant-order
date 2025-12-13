@@ -254,6 +254,36 @@ header {
     }
 }
 
+/* Complete Message */
+
+.complete-inner{
+    width: 100%;
+    background-color: #d9fcec;
+    height: 140px;
+    padding: 30px 0px;
+    border-radius: 4px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 2rem;
+    color: #065F46;
+
+    .complete-msg {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+
 
 /* button */
 #add-order-btn:hover,
@@ -282,6 +312,11 @@ header {
 .payment-x:focus {
     cursor:pointer;
     color: red;
+}
+
+/* Utility */
+.green {
+    color: #065F46
 }
 
 

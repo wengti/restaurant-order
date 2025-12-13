@@ -27,6 +27,9 @@ document.addEventListener("click", function(event) {
         overlay.style.display = "none";
         modal.style.display = "none";
     }
+    else if (event.target.dataset.rating){
+        handleRating(event.target.dataset.rating)
+    }
 })
 
 paymentForm.addEventListener('submit', handlePayment)
@@ -58,7 +61,7 @@ function handlePayment(event){
     event.preventDefault()
 
     const paymentFormData = new FormData(paymentForm)
-    const name = paymentFormData.get("name")
+    const userName = paymentFormData.get("name")
 
     paymentForm.name.value = ""
     paymentForm.cardNumber.value = ""
@@ -67,7 +70,20 @@ function handlePayment(event){
     overlay.style.display = "none";
     modal.style.display = "none";
 
-    render(true)
+    render(userName)
+}
+
+// handle rating
+function handleRating(ratingId) {
+    const ratingArr = document.querySelectorAll(".fa-star")
+
+    // First clear all rating
+    ratingArr.forEach( ratingObj => ratingObj.classList.remove("fa-solid"))
+
+    // Highlight rating up until the selected one
+    for (let i=0; i<Number(ratingId); i++){
+        ratingArr[i].classList.add("fa-solid")
+    }
 }
 
 
@@ -153,20 +169,26 @@ function getOrderHtml(){
     }
 
     return orderHtml
+
+    return ""
 }
 
-function getCompleteOrderHtml() {
-    let completeOrderHtml = ""
+function getCompleteOrderHtml(userName) {
+    const completeOrderHtml = `
+    `
+
+
     return completeOrderHtml
 }
 
-function render(completeOrderFlag = false) {
+function render(userName = "") {
     itemOuter.innerHTML = getMenuHtml()
-    if (completeOrderFlag) {
-        orderOuter.innerHTML = getCompleteOrderHtml()
-    } else {
-        orderOuter.innerHTML = getOrderHtml()
-    }
+    if (userName) {
+        orderOuter.innerHTML = getCompleteOrderHtml(userName)
+    } 
+    // else {
+    //     orderOuter.innerHTML = getOrderHtml()
+    // }
 }
 
 

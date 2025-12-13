@@ -10,6 +10,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
@@ -27,7 +31,21 @@
 
             <section class="order-outer" id="order-outer">
                 <!-- Your Order here -->
-            </section>
+                 <div class="complete-inner" id="complete-inner">
+                    <div class="complete-msg" id="complete-msg"> 
+                        <p>Thanks, Weng Ti! Your order is on its way!</p>
+                    </div>
+
+                    <div class="rating" id="rating">
+                        <i class="fa-regular fa-star" tabindex="0" data-rating="1"></i>
+                        <i class="fa-regular fa-star" tabindex="0" data-rating="2"></i>
+                        <i class="fa-regular fa-star" tabindex="0" data-rating="3"></i>
+                        <i class="fa-regular fa-star" tabindex="0" data-rating="4"></i>
+                        <i class="fa-regular fa-star" tabindex="0" data-rating="5"></i>
+                    </div>
+                 </div>
+                 
+            </section>          
 
             <!-- Payment UI -->
             <div class="modal" id="modal">
