@@ -29,7 +29,8 @@
                 <!-- Your Order here -->
             </section>
 
-            <section class="modal" id="modal">
+            <!-- Payment UI -->
+            <div class="modal" id="modal">
                 <form class="payment-form">
                     <p>Enter card details</p>
                     <input type="text" 
@@ -42,15 +43,16 @@
                         id = "card-number",
                         pattern= "\d{4}-\d{4}-\d{4}-\d{4}"
                         placeholder = "Enter card number (xxxx-xxxx-xxxx-xxxx)"
-                        />
+                        required />
                     <input type="text"
                         name="card-cvv",
                         id="card-cvv",
                         pattern="\d{3}",
-                        placeholder = "Enter CVV (xxx)"/>
+                        placeholder = "Enter CVV (xxx)"
+                        required/>
                     <button type="submit" class="payment-btn">Pay</button>
                 </form>
-            </section>
+            </div>
         </main>
 
         <script src="./index.js" type="module"></script>
