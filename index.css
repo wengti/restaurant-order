@@ -46,7 +46,7 @@ header {
 /* Item */
 .item-outer {
     width: 90%;
-    margin: 30px auto;
+    margin: 30px auto 0px auto;
 }
 
 .item-inner {
@@ -89,24 +89,75 @@ header {
         }
     }
 
-    .food-btn-container{
-        width: 10%;
-        display: flex;
-        justify-content: flex-end;
-
-        button {
-            width: 50px;
-            height: 50px;
-            border: 1px solid #DEDEDE;
-            border-radius: 25px;
-            background-color: inherit;
-            font-size: 30px;
-            padding: 0px;
-            line-height: 15px;
-            font-weight: normal;
-        }
+    button {
+        margin-left: auto;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #DEDEDE;
+        border-radius: 25px;
+        background-color: inherit;
+        font-size: 30px;
+        padding: 0px;
+        line-height: 15px;
+        font-weight: normal;
     }
 
-    
 }
 
+
+/* Order */
+.order-outer {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.order-title{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.order-item-inner{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .order-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 10px;
+
+        .order-detail {
+            font-size: 2rem;
+        }
+
+        .remove-btn {
+                color: #BBB;
+                font-family: Verdana;
+                font-size: 0.7rem;
+            }
+
+        .order-price {
+            margin-left: auto;
+            font-size: 2rem;
+        }
+    }
+}
+
+.order-price-inner {
+
+    padding-top: 20px;
+    border-top: 1px solid black;
+
+    .total-price {
+        display: flex;
+        font-size: 2rem;
+    }
+
+    .order-price {
+        margin-left: auto;
+        font-size: 2rem;
+    }
+    }
+}

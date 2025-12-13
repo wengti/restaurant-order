@@ -19,7 +19,7 @@ function getInnerHtml(){
                     <p class="food-ingredient">${ingredients.join(", ")}</p>
                     <p class="food-price">$${price}</p>
                 </div>
-                <div class="food-btn-container"><button>+</button></div>
+                <button>+</button>
             </div>
         `
     }).join("")
