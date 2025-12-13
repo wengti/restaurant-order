@@ -206,6 +206,16 @@ header {
 
 }
 
+.payment-x {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    font-family: Verdana;
+    margin-right: 10px;
+}
+
+
 .payment-form {
     width: 95%;
     padding: 20px 10px;
@@ -255,7 +265,7 @@ header {
 }
 
 #remove-order-btn:hover,
-#remove-order-btn:focus {
+#remove-order-btn:focus{
     cursor: pointer;
     color: black;
 }
@@ -266,6 +276,12 @@ header {
 .payment-btn:focus{
     cursor: pointer;
     border:1px solid black;
+}
+
+.payment-x:hover,
+.payment-x:focus {
+    cursor:pointer;
+    color: red;
 }
 
 

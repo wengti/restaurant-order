@@ -31,7 +31,9 @@
 
             <!-- Payment UI -->
             <div class="modal" id="modal">
-                <form class="payment-form">
+                <div class="payment-x" id="payment-x"
+                    tabindex="0">X</div>
+                <form class="payment-form" id="payment-form">
                     <p>Enter card details</p>
                     <input type="text" 
                         name = "name"
@@ -39,18 +41,19 @@
                         placeholder="Enter your name" 
                         required/>
                     <input type="text"
-                        name = "card-number",
+                        name = "cardNumber",
                         id = "card-number",
                         pattern= "\d{4}-\d{4}-\d{4}-\d{4}"
                         placeholder = "Enter card number (xxxx-xxxx-xxxx-xxxx)"
                         required />
                     <input type="text"
-                        name="card-cvv",
+                        name="cardCvv",
                         id="card-cvv",
                         pattern="\d{3}",
                         placeholder = "Enter CVV (xxx)"
                         required/>
-                    <button type="submit" class="payment-btn">Pay</button>
+                    <button type="submit" class="payment-btn"
+                        id="payment-btn">Pay</button>
                 </form>
             </div>
         </main>

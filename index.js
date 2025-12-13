@@ -5,6 +5,7 @@ const itemOuter = document.getElementById("item-outer")
 const orderOuter = document.getElementById("order-outer")
 const modal = document.getElementById("modal")
 const overlay = document.getElementById("overlay")
+const paymentForm = document.getElementById("payment-form")
 
 
 // Functions to run upon loading of the page
@@ -22,18 +23,20 @@ document.addEventListener("click", function(event) {
         overlay.style.display = "block";
         modal.style.display = "block";
     }
-    else if (event.target.id === "overlay"){
+    else if (event.target.id === "overlay" || event.target.id === "payment-x"){
         overlay.style.display = "none";
         modal.style.display = "none";
     }
 })
+
+paymentForm.addEventListener('submit', handlePayment)
+
 
 // Add or Remove Order
 function addOrder(itemId) {
     const targetItem = menuArray.filter( (menuItem) => {
         return menuItem.id === itemId
     })[0]
-    console.log(targetItem)
 
     targetItem.orderCount++
 
@@ -44,11 +47,27 @@ function removeOrder(itemId) {
     const targetItem = menuArray.filter( (menuItem) => {
         return menuItem.id === itemId
     })[0]
-    console.log(targetItem)
 
     targetItem.orderCount--
 
     render()
+}
+
+// handle payment
+function handlePayment(event){
+    event.preventDefault()
+
+    const paymentFormData = new FormData(paymentForm)
+    const name = paymentFormData.get("name")
+
+    paymentForm.name.value = ""
+    paymentForm.cardNumber.value = ""
+    paymentForm.cardCvv.value = ""
+
+    overlay.style.display = "none";
+    modal.style.display = "none";
+
+    render(true)
 }
 
 
@@ -136,10 +155,18 @@ function getOrderHtml(){
     return orderHtml
 }
 
-function render() {
-    itemOuter.innerHTML = getMenuHtml()
-    orderOuter.innerHTML = getOrderHtml()
+function getCompleteOrderHtml() {
+    let completeOrderHtml = ""
+    return completeOrderHtml
+}
 
+function render(completeOrderFlag = false) {
+    itemOuter.innerHTML = getMenuHtml()
+    if (completeOrderFlag) {
+        orderOuter.innerHTML = getCompleteOrderHtml()
+    } else {
+        orderOuter.innerHTML = getOrderHtml()
+    }
 }
 
 
