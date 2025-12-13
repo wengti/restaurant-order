@@ -76,14 +76,28 @@ function handlePayment(event){
 // handle rating
 function handleRating(ratingId) {
     const ratingArr = document.querySelectorAll(".fa-star")
+    
+    // Find the highest rating that has been clicked
+    let highestSolidIndex = 0;
+    for (let i=0; i<ratingArr.length; i++){
+        if (Array.from(ratingArr[i].classList).includes("fa-solid")){
+            highestSolidIndex++
+        } else {
+            break
+        }
+    }
 
     // First clear all rating
     ratingArr.forEach( ratingObj => ratingObj.classList.remove("fa-solid"))
 
     // Highlight rating up until the selected one
-    for (let i=0; i<Number(ratingId); i++){
-        ratingArr[i].classList.add("fa-solid")
-    }
+    // Only perform this if the clicked star is not the highest highlighted star
+    if (! (Number(ratingId) === highestSolidIndex) ){
+        for (let i=0; i<Number(ratingId); i++){
+            ratingArr[i].classList.add("fa-solid")
+            console.log("why")
+        }
+    }    
 }
 
 

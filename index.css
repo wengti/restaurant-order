@@ -317,7 +317,7 @@ header {
 
 .complete-order-btn:hover,
 .complete-order-btn:focus,
-.payment-btn:hover,
+.payment-btn:hover, 
 .payment-btn:focus,
 .rating-btn:hover,
 .rating-btn:focus{
