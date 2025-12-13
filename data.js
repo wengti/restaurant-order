@@ -2,7 +2,7 @@ const menuArray = [
     {
         name: "Pizza",
         ingredients: ["pepperoni", "mushrom", "mozarella"],
-        id: 0,
+        id: "0",
         price: 14,
         image: "./images/pizza.png",
         orderCount: 0
@@ -12,7 +12,7 @@ const menuArray = [
         ingredients: ["beef", "cheese", "lettuce"],
         price: 12,
         image: "./images/burger.png",
-        id: 1,
+        id: "1",
         orderCount: 0
     },
         {
@@ -20,7 +20,7 @@ const menuArray = [
         ingredients: ["grain, hops, yeast, water"],
         price: 12,
         image: "./images/beer.png",
-        id: 2,
+        id: "2",
         orderCount: 0
     }
 ]

@@ -45,15 +45,16 @@ header {
 
 /* Item */
 .item-outer {
-    width: 90%;
+    width: 100%;
     margin: 30px auto 0px auto;
 }
 
 .item-inner {
-    width: 100%;
+    width: 90%;
     padding: 40px 0px;
     display: flex;
     border-bottom: 1px solid #D2D2D2;
+    margin: 0 auto;
 
     .food-img {
         width: 20%;
@@ -63,7 +64,7 @@ header {
         margin: 0px;
 
         img {
-            width: 70%;
+            width: 80%;
         }
     }
 
@@ -136,6 +137,8 @@ header {
                 color: #BBB;
                 font-family: Verdana;
                 font-size: 0.7rem;
+                border: none;
+                background-color: inherit;
             }
 
         .order-price {
@@ -160,4 +163,20 @@ header {
         font-size: 2rem;
     }
 
+}
+
+
+/* button */
+#add-order-btn:hover,
+#add-order-btn:focus{
+    background-color: lightgray;
+    cursor: pointer;
+    border: 2px solid black;
+    outline: none;
+}
+
+#remove-order-btn:hover,
+#remove-order-btn:focus {
+    cursor: pointer;
+    color: black;
 }

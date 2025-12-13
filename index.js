@@ -2,19 +2,60 @@ import menuArray from "./data.js";
 
 // Getting control of elements
 const itemOuter = document.getElementById("item-outer")
+const orderOuter = document.getElementById("order-outer")
 
 
 // Functions to run upon loading of the page
 render()
 
+// Event Listener
+document.addEventListener("click", function(event) {
+    if (event.target.dataset.addOrderId) {
+        addOrder(event.target.dataset.addOrderId)
+    }
+    else if (event.target.dataset.removeOrderId) {
+        removeOrder(event.target.dataset.removeOrderId)
+    }
+})
+
+// Add or Remove Order
+function addOrder(itemId) {
+    const targetItem = menuArray.filter( (menuItem) => {
+        return menuItem.id === itemId
+    })[0]
+    console.log(targetItem)
+
+    targetItem.orderCount++
+
+    render()
+}
+
+function removeOrder(itemId) {
+    const targetItem = menuArray.filter( (menuItem) => {
+        return menuItem.id === itemId
+    })[0]
+    console.log(targetItem)
+
+    targetItem.orderCount--
+
+    render()
+}
+
+
+
+
+
+
+
+
+
 
 // render()
-function getInnerHtml(){
-    let innerHtml = []
-
+function getMenuHtml(){
+    let menuHtml = []
 
     // Render out the menu
-    innerHtml = menuArray.map( (menuItem) => {
+    menuHtml = menuArray.map( (menuItem) => {
         const {name, ingredients, id, price, image, orderCount} = menuItem
 
         return `
@@ -25,10 +66,17 @@ function getInnerHtml(){
                     <p class="food-ingredient">${ingredients.join(", ")}</p>
                     <p class="food-price">$${price}</p>
                 </div>
-                <button>+</button>
+                <button data-add-order-id=${id} id="add-order-btn">+</button>
             </div>
         `
     }).join("")
+
+    return menuHtml
+}
+
+function getOrderHtml(){
+
+    let orderHtml = ""
 
     //Render out the order
     //First get the array containing foods that are ordered
@@ -40,12 +88,11 @@ function getInnerHtml(){
 
         let totalPrice = 0
 
-        innerHtml += `
-            <section class="order-outer" id="order-outer">
+        orderHtml += `
                 <p class="order-title">Your Order</p>
         `
 
-        innerHtml += orderArrByUser.map( (orderObj) => {
+        orderHtml += orderArrByUser.map( (orderObj) => {
 
             const {name, ingredients, id, price, image, orderCount} = orderObj
             totalPrice += price*orderCount
@@ -54,7 +101,8 @@ function getInnerHtml(){
                 <div class="order-item-inner">
                     <div class="order-item">
                         <div class="order-detail">${orderCount}x ${name}</div>
-                        <div class="remove-btn">remove</div>
+                        <button class="remove-btn" data-remove-order-id=${id}
+                            id="remove-order-btn" tabindex="0">remove</button>
                         <div class="order-price">$${price*orderCount}</div>
                     </div>
                 </div>
@@ -62,22 +110,23 @@ function getInnerHtml(){
         }).join("")
 
 
-        innerHtml += `
+        orderHtml += `
                 <div class="order-price-inner">
                     <div class="total-price">
                         <div class="order-detail">Total Price:</div>
                         <div class="order-price">$${totalPrice}</div>
                     </div>
                 </div>            
-            </section>
         `
     }
 
-    return innerHtml
+    return orderHtml
 }
 
 function render() {
-    itemOuter.innerHTML = getInnerHtml()
+    itemOuter.innerHTML = getMenuHtml()
+    orderOuter.innerHTML = getOrderHtml()
+
 }
 
 
