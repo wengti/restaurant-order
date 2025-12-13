@@ -30,6 +30,9 @@ document.addEventListener("click", function(event) {
     else if (event.target.dataset.rating){
         handleRating(event.target.dataset.rating)
     }
+    else if (event.target.id === 'rating-btn'){
+        handleSubmitRating()
+    }
 })
 
 paymentForm.addEventListener('submit', handlePayment)
@@ -76,7 +79,7 @@ function handlePayment(event){
 // handle rating
 function handleRating(ratingId) {
     const ratingArr = document.querySelectorAll(".fa-star")
-    
+
     // Find the highest rating that has been clicked
     let highestSolidIndex = 0;
     for (let i=0; i<ratingArr.length; i++){
@@ -100,15 +103,14 @@ function handleRating(ratingId) {
     }    
 }
 
+function handleSubmitRating(){
+    
+    for (let menuItem of menuArray){
+        menuItem.orderCount = 0
+    }
 
-/*
-
-*/
-
-
-
-
-
+    render()
+}
 
 
 
