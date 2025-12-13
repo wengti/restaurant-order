@@ -7,10 +7,17 @@ const orderOuter = document.getElementById("order-outer")
 const modal = document.getElementById("modal")
 const overlay = document.getElementById("overlay")
 const paymentForm = document.getElementById("payment-form")
+const footerContainer = document.getElementById("footer-container")
 
+//
+let highestRating = 0
+const dateNow = new Date()
 
 // Functions to run upon loading of the page
 render()
+footerContainer.innerHTML = `<h2>Jimmy's Diner © ${dateNow.getFullYear()}</h2>`
+
+
 
 // Event Listener
 document.addEventListener("click", function(event) {
@@ -80,27 +87,33 @@ function handlePayment(event){
 // handle rating
 function handleRating(ratingId) {
     const ratingArr = document.querySelectorAll(".fa-star")
+    const ratingBtn = document.getElementById("rating-btn")
 
     // Find the highest rating that has been clicked
-    let highestSolidIndex = 0;
-    for (let i=0; i<ratingArr.length; i++){
-        if (Array.from(ratingArr[i].classList).includes("fa-solid")){
-            highestSolidIndex++
-        } else {
-            break
-        }
-    }
+    // let highestSolidIndex = 0;
+    // for (let i=0; i<ratingArr.length; i++){
+    //     if (Array.from(ratingArr[i].classList).includes("fa-solid")){
+    //         highestSolidIndex++
+    //     } else {
+    //         break
+    //     }
+    // }
 
     // First clear all rating
     ratingArr.forEach( ratingObj => ratingObj.classList.remove("fa-solid"))
 
     // Highlight rating up until the selected one
     // Only perform this if the clicked star is not the highest highlighted star
-    if (! (Number(ratingId) === highestSolidIndex) ){
-        for (let i=0; i<Number(ratingId); i++){
+    if (Number(ratingId) === highestRating){
+        highestRating = 0;
+        ratingBtn.textContent = "Not Now"
+    } else {
+        highestRating = Number(ratingId)
+        for (let i=0; i<highestRating; i++){
             ratingArr[i].classList.add("fa-solid")
         }
-    }    
+        ratingBtn.textContent = "Submit Now"
+    }
 }
 
 function handleSubmitRating(){
@@ -213,7 +226,7 @@ function getCompleteOrderHtml(userName) {
                 <i class="fa-regular fa-star" tabindex="0" data-rating="5"></i>
             </div>
 
-            <button class="rating-btn" id="rating-btn">Submit Rating</button>
+            <button class="rating-btn" id="rating-btn">Not Now</button>
         </div>
     `
 }

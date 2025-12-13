@@ -5,7 +5,7 @@ body {
     font-family: 'Smythe', sans-serif;
 }
 
-header, main {
+header, main, footer{
     position: relative;
     width: 100vw;
     min-width: 320px;
@@ -44,10 +44,18 @@ header {
 
 }
 
+/* Main */
+main {
+    box-sizing: border-box;
+    border-right: 1px solid #D2D2D2;
+    border-left: 1px solid #D2D2D2;
+    padding-bottom: 30px;
+}
+
 /* Item */
 .item-outer {
     width: 100%;
-    margin: 30px auto 0px auto;
+    margin: 0px auto;
 }
 
 .item-inner {
@@ -110,10 +118,11 @@ header {
 /* Order */
 .order-outer {
     width: 90%;
-    margin: 30px auto;
+    margin: 0px auto;
 }
 
 .order-title{
+    margin-top: 30px;
     text-align: center;
     font-size: 3rem;
 }
@@ -265,6 +274,7 @@ header {
     margin: 0 auto;
     box-sizing: border-box;
     font-size: 2rem;
+    margin-top: 30px;
     color: #065F46;
 
     .complete-msg {
@@ -298,7 +308,29 @@ header {
     }
 }
 
+/* Footer */
+footer {
+    background-image: url("./images/footer.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .footer-container{
+
+        
+        h2 {
+            font-size: 2rem;
+            margin: 0px;
+            font-weight: 400;
+            text-shadow: 1px 1px black;
+        }
+    }
+
+}
 
 
 /* button */
