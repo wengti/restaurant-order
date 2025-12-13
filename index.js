@@ -71,16 +71,21 @@ function removeOrder(itemId) {
 function handlePayment(event){
     event.preventDefault()
 
+    // get user name from the payment form
+    // to be put in the order message
     const paymentFormData = new FormData(paymentForm)
     const userName = paymentFormData.get("name")
 
+    // Clear input field
     paymentForm.name.value = ""
     paymentForm.cardNumber.value = ""
     paymentForm.cardCvv.value = ""
 
+    // Remove overlay and modal
     overlay.style.display = "none";
     modal.style.display = "none";
 
+    // Clear orderCount since the payment is already processed
     for (let menuItem of menuArray){
         menuItem.orderCount = 0;
     }
