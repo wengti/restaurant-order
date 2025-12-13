@@ -81,6 +81,10 @@ function handlePayment(event){
     overlay.style.display = "none";
     modal.style.display = "none";
 
+    for (let menuItem of menuArray){
+        menuItem.orderCount = 0;
+    }
+
     render(userName)
 }
 
@@ -88,16 +92,6 @@ function handlePayment(event){
 function handleRating(ratingId) {
     const ratingArr = document.querySelectorAll(".fa-star")
     const ratingBtn = document.getElementById("rating-btn")
-
-    // Find the highest rating that has been clicked
-    // let highestSolidIndex = 0;
-    // for (let i=0; i<ratingArr.length; i++){
-    //     if (Array.from(ratingArr[i].classList).includes("fa-solid")){
-    //         highestSolidIndex++
-    //     } else {
-    //         break
-    //     }
-    // }
 
     // First clear all rating
     ratingArr.forEach( ratingObj => ratingObj.classList.remove("fa-solid"))
