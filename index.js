@@ -123,6 +123,7 @@ function getMenuHtml(){
         const {name, ingredients, id, price, image, orderCount, originalPrice} = menuItem
 
         const originalPriceHtml = originalPrice ? `$${originalPrice}` : ``
+        const spacing = originalPrice ? `&nbsp;&nbsp;&nbsp;` : ``
 
 
         return `
@@ -131,7 +132,10 @@ function getMenuHtml(){
                 <div class="food-detail">
                     <p class="food-name">${name}</p>
                     <p class="food-ingredient">${ingredients.join(", ")}</p>
-                    <div class="food-price"><del>${originalPriceHtml}</del><p>$${price}</p></div>
+                    <p class="food-price">
+                        <del>${originalPriceHtml}</del>
+                        <span>${spacing}</span>
+                        $${price}</p>
                 </div>
                 <button data-add-order-id=${id} id="add-order-btn">+</button>
             </div>

@@ -88,11 +88,6 @@ header {
         .food-price {
             padding-top: 15px;
             font-size: 1.8rem;
-            display: flex;
-            
-            del {
-                margin-right: 10px;
-            }
         }
     }
 
