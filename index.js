@@ -87,6 +87,9 @@ function handleRating(ratingId) {
 }
 
 
+/*
+
+*/
 
 
 
@@ -170,15 +173,26 @@ function getOrderHtml(){
 
     return orderHtml
 
-    return ""
 }
 
 function getCompleteOrderHtml(userName) {
-    const completeOrderHtml = `
+    return `
+        <div class="complete-inner" id="complete-inner">
+            <div class="complete-msg" id="complete-msg"> 
+                <p>Thanks, ${userName}! Your order is on its way!</p>
+            </div>
+
+            <div class="rating" id="rating">
+                <i class="fa-regular fa-star" tabindex="0" data-rating="1"></i>
+                <i class="fa-regular fa-star" tabindex="0" data-rating="2"></i>
+                <i class="fa-regular fa-star" tabindex="0" data-rating="3"></i>
+                <i class="fa-regular fa-star" tabindex="0" data-rating="4"></i>
+                <i class="fa-regular fa-star" tabindex="0" data-rating="5"></i>
+            </div>
+
+            <button class="rating-btn" id="rating-btn">Submit Rating</button>
+        </div>
     `
-
-
-    return completeOrderHtml
 }
 
 function render(userName = "") {
@@ -186,9 +200,9 @@ function render(userName = "") {
     if (userName) {
         orderOuter.innerHTML = getCompleteOrderHtml(userName)
     } 
-    // else {
-    //     orderOuter.innerHTML = getOrderHtml()
-    // }
+    else {
+        orderOuter.innerHTML = getOrderHtml()
+    }
 }
 
 
