@@ -1,0 +1,112 @@
+/* General Layout */
+body {
+    margin: 0px;
+    background-color: whitesmoke;
+    font-family: 'Smythe', sans-serif;
+}
+
+header, main {
+    width: 100vw;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+h1, h2, p{
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-image: url("./images/banner.png");
+    background-position: center;
+    background-size: cover;
+    height: 180px;
+}
+
+.header-container{
+    color: white;
+    padding: 40px;
+
+    h1 {
+        font-size: 3rem;
+        margin: 0px;
+        padding: 0px;
+        font-weight: 400;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 0px;
+        font-weight: 400;
+    }
+
+}
+
+/* Item */
+.item-outer {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.item-inner {
+    width: 100%;
+    padding: 40px 0px;
+    display: flex;
+    border-bottom: 1px solid #D2D2D2;
+
+    .food-img {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+
+        img {
+            width: 70%;
+        }
+    }
+
+    .food-detail{
+        width: 70%;
+        padding: 0px 0px 0px 20px;
+
+        .food-name {
+            font-size: 3rem;
+            line-height: 3rem;
+        }
+
+        .food-ingredient {
+            color: #8B8B8B;
+            padding-top: 0px;
+            font-size: 1.6rem;
+            line-height: 1.4rem;
+        }
+
+        .food-price {
+            padding-top: 15px;
+            font-size: 1.8rem;
+        }
+    }
+
+    .food-btn-container{
+        width: 10%;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #DEDEDE;
+            border-radius: 25px;
+            background-color: inherit;
+            font-size: 30px;
+            padding: 0px;
+            line-height: 15px;
+            font-weight: normal;
+        }
+    }
+
+    
+}
+
