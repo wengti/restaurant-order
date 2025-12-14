@@ -33,14 +33,15 @@ function getOrderPageInnerHtml(){
         for (let userOrderAll of pastUserOrderArr){
             let totalPrice = 0
             const {orderNumber, rating, orderTime} = userOrderAll[0]
-            
+            const orderTimeString = new Date(orderTime)
+
             orderPageInnerHtml += `
                 <div class="order-item" id="order-item">
                         <p class="order-number">Order #${orderNumber}</p>
-                        <p class="order-time">Order Time: ${orderTime.toLocaleString()}</p>
+                        <p class="order-time">Order Time: ${orderTimeString.toLocaleString()}</p>
             `
             for (let i=1; i<userOrderAll.length; i++){
-                const {name, orderCount, price} = userOrderAll[1]
+                const {name, orderCount, price} = userOrderAll[i]
                 totalPrice += orderCount * price
 
                 orderPageInnerHtml += `

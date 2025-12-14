@@ -95,7 +95,6 @@ function handlePayment(event){
 
     // Record User's order
     let userOrderArray = structuredClone( menuArray.filter( menuItem => menuItem.orderCount !== 0) )
-    
     userOrderArray.unshift(
         {"orderNumber": pastUserOrderArr.length + 1, 
             "rating": 0, 
