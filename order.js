@@ -15,7 +15,7 @@ const dateNow = new Date()
 footerContainer.innerHTML = `<h2>Jimmy's Diner © ${dateNow.getFullYear()}</h2>`
 
 function renderOrder() {
-    orderOuter.innerHTML = getOrderPageInnerHtml()
+    yourOrderOuter.innerHTML = getOrderPageInnerHtml()
 }
 
 function getOrderPageInnerHtml(){
@@ -26,7 +26,65 @@ function getOrderPageInnerHtml(){
     receiptIcon.appendChild(orderNumberIcon)
 
 
-    let orderPageInnerHtml = ""
+    let orderPageInnerHtml = "<h1>Your Order</h1>"
+
+    if (pastUserOrderArr.length > 0){
+
+        for (let userOrderAll of pastUserOrderArr){
+            let totalPrice = 0
+            const {orderNumber, rating, orderTime} = userOrderAll[0]
+            
+            orderPageInnerHtml += `
+                <div class="order-item" id="order-item">
+                        <p class="order-number">Order #${orderNumber}</p>
+                        <p class="order-time">Order Time: ${orderTime.toLocaleString()}</p>
+            `
+            for (let i=1; i<userOrderAll.length; i++){
+                const {name, orderCount, price} = userOrderAll[1]
+                totalPrice += orderCount * price
+
+                orderPageInnerHtml += `
+                        <div class="order-item-detail" id="order-item-detail">
+                            <p>${orderCount}x ${name}</p>
+                            <p class="order-item-price">$${orderCount*price}</p>
+                        </div>
+                `
+            }
+            
+            orderPageInnerHtml += `
+                        <div class="order-item-total" id="order-item-total">
+                            <p>Total Price</p>
+                            <p class="order-item-total-price">$${totalPrice}</p>
+                        </div>
+                        <div class="rating-section">
+                            <p>Rating:</p>
+                            <span>
+            `
+
+            for (let i=0; i<rating; i++){
+            orderPageInnerHtml += `
+                <i class="fa-solid fa-star"></i>
+            `
+            }
+
+            for (let i=0; i<(5-rating); i++){
+            orderPageInnerHtml += `
+                <i class="fa-regular fa-star"></i>
+            `
+            }
+            
+            orderPageInnerHtml += `
+                            </span>
+                        </div>
+                    </div>
+                    `
+        }
+    } 
 
     return orderPageInnerHtml
 }
+    
+
+
+
+    

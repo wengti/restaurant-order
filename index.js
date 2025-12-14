@@ -94,15 +94,17 @@ function handlePayment(event){
     modal.style.display = "none";
 
     // Record User's order
-    const userOrderArray = menuArray.filter( menuItem => menuItem.orderCount !== 0)
+    let userOrderArray = structuredClone( menuArray.filter( menuItem => menuItem.orderCount !== 0) )
+    
     userOrderArray.unshift(
         {"orderNumber": pastUserOrderArr.length + 1, 
             "rating": 0, 
             "orderTime": new Date()}
     )
-
+    
     pastUserOrderArr.unshift(userOrderArray) //Record Locally
     localStorage.setItem("userOrderArr", JSON.stringify(pastUserOrderArr)) //Record in Local Storage
+
 
     // Clear orderCount since the payment is already processed
     for (let menuItem of menuArray){
@@ -110,6 +112,7 @@ function handlePayment(event){
     }
 
     render(userName)
+
 }
 
 // handle rating
