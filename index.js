@@ -94,7 +94,8 @@ function handlePayment(event){
 
     // Record User's order
     const userOrderArray = menuArray.filter( menuItem => menuItem.orderCount !== 0)
-    pastUserOrderArr.push(userOrderArray) //Record Locally
+    userOrderArray.unshift({"rating": 0})
+    pastUserOrderArr.unshift(userOrderArray) //Record Locally
     localStorage.setItem("userOrderArr", JSON.stringify(pastUserOrderArr)) //Record in Local Storage
 
     // Clear orderCount since the payment is already processed
@@ -128,7 +129,8 @@ function handleRating(ratingId) {
 }
 
 function handleSubmitRating(){
-    
+    pastUserOrderArr[0][0].rating = highestRating
+    localStorage.setItem("userOrderArr", JSON.stringify(pastUserOrderArr))
     render()
 }
 
