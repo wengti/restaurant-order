@@ -47,7 +47,7 @@ function getOrderPageInnerHtml(){
                 orderPageInnerHtml += `
                         <div class="order-item-detail" id="order-item-detail">
                             <p>${orderCount}x ${name}</p>
-                            <p class="order-item-price">$${orderCount*price}</p>
+                            <p class="order-item-price">$${roundTo2Dec(orderCount*price)}</p>
                         </div>
                 `
             }
@@ -55,7 +55,7 @@ function getOrderPageInnerHtml(){
             orderPageInnerHtml += `
                         <div class="order-item-total" id="order-item-total">
                             <p>Total Price</p>
-                            <p class="order-item-total-price">$${totalPrice}</p>
+                            <p class="order-item-total-price">$${roundTo2Dec(totalPrice)}</p>
                         </div>
                         <div class="rating-section">
                             <p>Rating:</p>
@@ -86,6 +86,9 @@ function getOrderPageInnerHtml(){
 }
     
 
-
+// Utility
+function roundTo2Dec(num){
+    return Math.round(num*100)/100
+}
 
     

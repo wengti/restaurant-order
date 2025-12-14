@@ -145,6 +145,21 @@ function handleSubmitRating(){
 
 
 // render()
+function render(userName = "") {
+    // Dynamically add the past order count to the receipt icon
+    const orderNumberIcon = document.createElement("div")
+    orderNumberIcon.textContent = (pastUserOrderArr.length > 99) ? 99 : pastUserOrderArr.length
+    receiptIcon.appendChild(orderNumberIcon)
+
+    itemOuter.innerHTML = getMenuHtml()
+    if (userName) {
+        orderOuter.innerHTML = getCompleteOrderHtml(userName)
+    } 
+    else {
+        orderOuter.innerHTML = getOrderHtml()
+    }
+}
+
 function getMenuHtml(){
     let menuHtml = []
 
@@ -204,7 +219,7 @@ function getOrderHtml(){
                         <div class="order-detail">${orderCount}x ${name}</div>
                         <button class="remove-btn" data-remove-order-id=${id}
                             id="remove-order-btn" tabindex="0">remove</button>
-                        <div class="order-price">$${price*orderCount}</div>
+                        <div class="order-price">$${roundTo2Dec(price*orderCount)}</div>
                     </div>
                 </div>
             `
@@ -215,7 +230,7 @@ function getOrderHtml(){
                 <div class="order-price-inner">
                     <div class="total-price">
                         <div class="order-detail">Total Price:</div>
-                        <div class="order-price">$${totalPrice}</div>
+                        <div class="order-price">$${roundTo2Dec(totalPrice)}</div>
                     </div>
                 </div>
 
@@ -248,19 +263,8 @@ function getCompleteOrderHtml(userName) {
     `
 }
 
-function render(userName = "") {
-    // Dynamically add the past order count to the receipt icon
-    const orderNumberIcon = document.createElement("div")
-    orderNumberIcon.textContent = (pastUserOrderArr.length > 99) ? 99 : pastUserOrderArr.length
-    receiptIcon.appendChild(orderNumberIcon)
 
-    itemOuter.innerHTML = getMenuHtml()
-    if (userName) {
-        orderOuter.innerHTML = getCompleteOrderHtml(userName)
-    } 
-    else {
-        orderOuter.innerHTML = getOrderHtml()
-    }
+// Utility
+function roundTo2Dec(num){
+    return Math.round(num*100)/100
 }
-
-
