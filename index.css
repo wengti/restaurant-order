@@ -400,8 +400,9 @@ footer {
 }
 
 /* Subpage */
-.your-order-outer{
+.your-order-outer {
     width: 100%;
+    font-size: 1.5rem;
 
     h1 {
         padding-top: 30px;
@@ -409,8 +410,44 @@ footer {
         text-align: center;
         font-size: 3rem;
     }
+    
+    .order-item {
+        margin: 10px 20px 20px 20px;
+        border-top: 1px solid black;
 
+        .order-number {
+            font-size: 2rem;
+        }
+
+        .order-time {
+            font-size: 1.2rem;
+            padding-bottom: 10px;
+        }
+
+        .order-item-detail {
+            display: flex;
+
+            .order-item-price{
+                margin-left: auto;
+            }
+        }
+
+        .order-item-total{
+            display: flex;
+            padding-top: 10px;
+
+            .order-item-total-price{
+                margin-left: auto;
+            }
+        }
+
+        .rating-section{
+            display: flex;
+
+            span{
+                margin-left: auto;
+            }
+        }
+
+    }
 }
-
-
-
