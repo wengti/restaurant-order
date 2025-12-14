@@ -6,7 +6,6 @@ const menuArray = [
         price: 14,
         image: "./images/pizza.png",
         orderCount: 0,
-        rating: 0
     },
     {
         name: "Hamburger",
@@ -15,7 +14,6 @@ const menuArray = [
         image: "./images/burger.png",
         id: "1",
         orderCount: 0,
-        rating: 0
     },
     {
         name: "Beer",
@@ -24,7 +22,6 @@ const menuArray = [
         image: "./images/beer.png",
         id: "2",
         orderCount: 0,
-        rating: 0
     },
     {
         name: "Set A",
@@ -34,7 +31,6 @@ const menuArray = [
         image: "./images/SetA.png",
         id: "3",
         orderCount: 0,
-        rating: 0
     },
     {
         name: "Set B",
