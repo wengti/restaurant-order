@@ -17,6 +17,19 @@ h1, h2, p{
     margin: 0;
 }
 
+
+ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+    list-style: none;
+}
+}
+
+
+
 /* Header */
 header {
     background-image: url("./images/banner.png");
@@ -40,6 +53,28 @@ header {
         font-size: 2rem;
         margin: 0px;
         font-weight: 400;
+        margin-bottom: 10px;
+    }
+
+    a{
+        color:white;
+        font-size: 1.5rem;
+        position: relative;
+
+        div{
+            position:absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            font-size: 15px;
+            color: white;
+            border-radius: 9px;
+            background-color: #065F46;
+            text-align: center;
+            line-height: 18px;
+            
+        }
     }
 
 }

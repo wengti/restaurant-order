@@ -15,6 +15,7 @@ const modal = document.getElementById("modal")
 const overlay = document.getElementById("overlay")
 const paymentForm = document.getElementById("payment-form")
 const footerContainer = document.getElementById("footer-container")
+const receiptIcon = document.getElementById("receipt-icon")
 
 //
 let highestRating = 0
@@ -241,6 +242,11 @@ function getCompleteOrderHtml(userName) {
 }
 
 function render(userName = "") {
+    // Dynamically add the past order count to the receipt icon
+    const orderNumberIcon = document.createElement("div")
+    orderNumberIcon.textContent = (pastUserOrderArr.length > 99) ? 99 : pastUserOrderArr.length
+    receiptIcon.appendChild(orderNumberIcon)
+
     itemOuter.innerHTML = getMenuHtml()
     if (userName) {
         orderOuter.innerHTML = getCompleteOrderHtml(userName)
