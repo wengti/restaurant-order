@@ -5,7 +5,8 @@ const menuArray = [
         id: "0",
         price: 14,
         image: "./images/pizza.png",
-        orderCount: 0
+        orderCount: 0,
+        rating: 0
     },
     {
         name: "Hamburger",
@@ -13,7 +14,8 @@ const menuArray = [
         price: 12,
         image: "./images/burger.png",
         id: "1",
-        orderCount: 0
+        orderCount: 0,
+        rating: 0
     },
     {
         name: "Beer",
@@ -21,7 +23,8 @@ const menuArray = [
         price: 12,
         image: "./images/beer.png",
         id: "2",
-        orderCount: 0
+        orderCount: 0,
+        rating: 0
     },
     {
         name: "Set A",
@@ -30,7 +33,8 @@ const menuArray = [
         price: 43.20,
         image: "./images/SetA.png",
         id: "3",
-        orderCount: 0
+        orderCount: 0,
+        rating: 0
     },
     {
         name: "Set B",
@@ -39,7 +43,8 @@ const menuArray = [
         price: 55.80,
         image: "./images/SetB.png",
         id: "4",
-        orderCount: 0
+        orderCount: 0,
+        rating: 0
     }
 ]
 
