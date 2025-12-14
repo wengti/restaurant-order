@@ -95,7 +95,8 @@ function handlePayment(event){
 
     // Record User's order
     const userOrderArray = menuArray.filter( menuItem => menuItem.orderCount !== 0)
-    userOrderArray.unshift({"rating": 0})
+
+    userOrderArray.unshift({"rating": 0, "orderTime": new Date()})
     pastUserOrderArr.unshift(userOrderArray) //Record Locally
     localStorage.setItem("userOrderArr", JSON.stringify(pastUserOrderArr)) //Record in Local Storage
 

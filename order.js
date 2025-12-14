@@ -5,7 +5,7 @@ if (localStorage.getItem("userOrderArr")){
 } 
 
 // Get control of Elements
-const orderOuter = document.getElementById("order-outer")
+const yourOrderOuter = document.getElementById("your-order-outer")
 const footerContainer = document.getElementById("footer-container")
 const receiptIcon = document.getElementById("receipt-icon")
 
@@ -26,9 +26,7 @@ function getOrderPageInnerHtml(){
     receiptIcon.appendChild(orderNumberIcon)
 
 
-    let orderPageInnerHtml = `
-        <p class="order-title">Your Order</p>
-    `
+    let orderPageInnerHtml = ""
 
     return orderPageInnerHtml
 }

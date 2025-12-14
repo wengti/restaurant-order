@@ -399,7 +399,18 @@ footer {
     color: red;
 }
 
-/* Utility */
+/* Subpage */
+.your-order-outer{
+    width: 100%;
+
+    h1 {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+}
 
 
 
