@@ -1,6 +1,13 @@
 import menuArray from "./data.js";
 
 
+
+// Local Storage
+let pastUserOrderArr = []
+if (localStorage.getItem("userOrderArr")){
+    pastUserOrderArr = JSON.parse(localStorage.getItem("userOrderArr"))
+} 
+
 // Getting control of elements
 const itemOuter = document.getElementById("item-outer")
 const orderOuter = document.getElementById("order-outer")
@@ -85,6 +92,11 @@ function handlePayment(event){
     overlay.style.display = "none";
     modal.style.display = "none";
 
+    // Record User's order
+    const userOrderArray = menuArray.filter( menuItem => menuItem.orderCount !== 0)
+    pastUserOrderArr.push(userOrderArray) //Record Locally
+    localStorage.setItem("userOrderArr", JSON.stringify(pastUserOrderArr)) //Record in Local Storage
+
     // Clear orderCount since the payment is already processed
     for (let menuItem of menuArray){
         menuItem.orderCount = 0;
@@ -117,10 +129,6 @@ function handleRating(ratingId) {
 
 function handleSubmitRating(){
     
-    for (let menuItem of menuArray){
-        menuItem.orderCount = 0
-    }
-
     render()
 }
 
